@@ -1,0 +1,12 @@
+---
+ - hosts: default
+   become: yes
+   vars:
+      jenkins2_version:
+        - jenkins-2.75
+      jenkins2_plugins:
+        - blueocean
+   roles:
+    # install oracle JDK
+    - sleighzy.java-8
+    - ohtomi.jenkins2

@@ -10,3 +10,13 @@
     # install oracle JDK
     - sleighzy.java-8
     - ohtomi.jenkins2
+   tasks:
+     - name: install maven
+       yum:
+        name: maven
+        state: present
+     - name: install git
+       yum:
+        name: git
+        state: present
+

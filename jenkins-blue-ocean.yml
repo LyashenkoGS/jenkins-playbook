@@ -1,4 +1,5 @@
 ---
+# contains tasks to install: Oracle JDK 1.8, maven, Jenkins with the blue ocean plugin
  - hosts: default
    become: yes
    vars:
@@ -7,7 +8,6 @@
       jenkins2_plugins:
         - blueocean
    roles:
-    # install oracle JDK
     - sleighzy.java-8
     - ohtomi.jenkins2
    tasks:

@@ -11,7 +11,9 @@ Vagrant.configure("2") do |config|
  # Customize the amount of memory on the VM:
      vb.memory = "3024"
    end
-    
+
+config.vm.synced_folder ".", "/vagrant", disabled: true
+
 # apply ansible playbooks 
 config.vm.provision "ansible" do |ansible|
       ansible.playbook = "jenkins-blue-ocean.yml"

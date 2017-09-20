@@ -1,0 +1,27 @@
+---
+   # contains tasks to backup and restore all Jenkins configurations from/to VM
+ - hosts: default
+   become: yes
+   vars:
+   # specify a command via --extra-args "command=pull" or --extra-args "command=push"
+    command: ''
+   tasks:
+     - name: stop jenkins
+       systemd:
+        name: jenkins
+        state: stopped
+     - name: copy jenkins wokrdir to local
+       when: command == 'pull'
+       synchronize:
+        src: /var/lib/jenkins
+        dest: .
+        mode: pull
+     - name: restore jenkins wokrdir from local to the VM
+       when: command == 'push'
+       synchronize:
+        src: jenkins
+        dest: /var/lib/
+     - name: start jenkins
+       systemd:
+        name: jenkins
+        state: started

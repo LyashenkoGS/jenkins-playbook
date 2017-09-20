@@ -1,3 +1,5 @@
 .vagrant
 *.retry
 .idea
+jenkins
+.DS_Store

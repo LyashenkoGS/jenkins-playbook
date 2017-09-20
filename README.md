@@ -21,6 +21,8 @@ A collection of playbooks to install:
 
       vagrant up
       
+### How to backup Jenkins
+     
 * backup Jenkins configuration from VM to localhost
        
        ansible-playbook backup-jenkins.yml -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory -vv --extra-vars "command=pull"

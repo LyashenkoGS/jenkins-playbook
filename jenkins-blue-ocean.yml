@@ -7,16 +7,24 @@
         - jenkins-2.75
       jenkins2_plugins:
         - blueocean
+        - slack
+      #ad-hoc solution to fix a problem with SSL certificates
+      jenkins2_rpm_key_validate_certs: no
    roles:
     - sleighzy.java-8
+    - role: robdyke.maven
+      maven_version_major: 3
+      maven_version_minor: 5
+      maven_version_patch: 0
+      maven_redis_sha256sum: 'beb91419245395bd69a4a6edad5ca3ec1a8b64e41457672dc687c173a495f034'
+      maven_bin_path: '/usr/bin'
     - ohtomi.jenkins2
    tasks:
-     - name: install maven
-       yum:
-        name: maven
-        state: present
      - name: install git
        yum:
         name: git
         state: present
-
+     - name: install vim
+       yum:
+        name: vim
+        state: present

@@ -31,6 +31,8 @@ A collection of playbooks to install:
 
        ansible-playbook backup-jenkins.yml -i .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory -vv --extra-vars "command=push"
 
-    
+### Tips
+
+Sometimes you may need to increase access permissions to /var/lib/jenkins after restoring a backup to a VM
 
 

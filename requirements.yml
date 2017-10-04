@@ -1,5 +1,4 @@
 
- - src: geerlingguy.java
-# - src: ohtomi.jenkins2
  - src: geerlingguy.jenkins
-
+ - src: sleighzy.java-8
+ - src: robdyke.maven

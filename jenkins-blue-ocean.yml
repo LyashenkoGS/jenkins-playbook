@@ -3,22 +3,27 @@
  - hosts: default
    become: yes
    vars:
-      # TODO fix stacking on "Download specific Jenkins version."
       jenkins_version: "2.75"
       jenkins_plugins:
        - blueocean
+       - pipeline-maven
       jenkins_admin_username: admin
       jenkins_admin_password: admin
    roles:
     - sleighzy.java-8
     - geerlingguy.jenkins
+    - role: robdyke.maven
+      maven_version_major: 3
+      maven_version_minor: 5
+      maven_version_patch: 0
+      maven_redis_sha256sum: 'beb91419245395bd69a4a6edad5ca3ec1a8b64e41457672dc687c173a495f034'
+      maven_bin_path: '/usr/bin'
    tasks:
-     - name: install maven
-       yum:
-        name: maven
-        state: present
      - name: install git
        yum:
         name: git
         state: present
-
+     - name: install vim
+       yum:
+        name: vim
+        state: present
